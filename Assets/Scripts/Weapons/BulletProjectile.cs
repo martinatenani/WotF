@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
@@ -22,7 +20,7 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<EnemyTarget>() != null)
+        if (other.GetComponent<EnemyTarget>() != null)
         {
             //Hit target
             //Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
@@ -37,6 +35,6 @@ public class BulletProjectile : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }

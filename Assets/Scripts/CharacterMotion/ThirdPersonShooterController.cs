@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
 using StarterAssets;
-using UnityEngine.InputSystem;
+using UnityEngine;
 
 //Nota: con il metodo hitscan il proiettile non è visibile, si vede solo l'effetto finale dell'impatto.
 
@@ -45,7 +42,7 @@ public class ThirdPersonShooterController : MonoBehaviour
         //Hitscan method for the projectile
         Transform hitTransform = null;
 
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask)) 
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
         {
             debugTransform.transform.position = raycastHit.point;
             mouseWorldPosition = raycastHit.point;
@@ -68,21 +65,21 @@ public class ThirdPersonShooterController : MonoBehaviour
 
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f); //lerp to give smoothness
         }
-        else 
+        else
         {
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
-        
+
         if (starterAssetsInputs.shoot)
         {
             //Hitscan
-            if(hitTransform != null)
+            if (hitTransform != null)
             {
                 //hit something
-                if(hitTransform.GetComponent<EnemyTarget>() != null)
+                if (hitTransform.GetComponent<EnemyTarget>() != null)
                 {
                     Debug.Log("hit enemy!");
                 }
@@ -95,6 +92,6 @@ public class ThirdPersonShooterController : MonoBehaviour
             //Instantiate(pfBulletProjectile,spnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
             starterAssetsInputs.shoot = false;
         }
-        
+
     }
 }
