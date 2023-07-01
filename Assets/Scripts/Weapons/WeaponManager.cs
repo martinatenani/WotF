@@ -7,7 +7,6 @@ public class WeaponManager : MonoBehaviour
     //Defines a node in the dynamic queue
     private class Node
     {
-        //modifica stupida
         public Weapon Weapon { get; set; }
         public Node Next { get; set; }
         public Node(Weapon _weapon)
