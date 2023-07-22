@@ -16,7 +16,7 @@ public class WeaponManager : MonoBehaviour
         }
 
         public Node(Weapon _weapon, Node _previous)
-        {
+        {                       
             this.Weapon = _weapon;
             this.Next = null;
             _previous.Next = this;
